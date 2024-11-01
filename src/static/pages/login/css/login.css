@@ -1,0 +1,72 @@
+.pyre-register-form {
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-bg-color);
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.pyre-register-input {
+    background: var(--primary-bg-color);
+    border: solid 2px;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 14pt;
+
+    transition: 100ms;
+}
+
+.pyre-register-input:hover {
+    border-color: var(--root-color);
+}
+
+.pyre-register-input:focus {
+    outline: none;
+    border-color: var(--root-color);
+}
+
+.pyre-register-button {
+    background: var(--accent-color);
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    transition: 100ms;
+}
+.pyre-register-button:hover {
+    background: var(--root-color);
+}
+
+
+.pyre-register-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+
+.pyre-register-form-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pyre-register-error-wrapper {
+    background: var(--root-color);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.pyre-link {
+    margin: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+.pyre-link:hover {
+    margin: 1rem;
+    color: var(--root-color);
+    text-decoration: none;
+    transition: 100ms;
+}

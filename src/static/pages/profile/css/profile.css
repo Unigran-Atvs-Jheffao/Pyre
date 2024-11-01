@@ -1,0 +1,28 @@
+.pyre-profile-feed {
+    background-color: var(--accent-bg-color);
+    margin-bottom: 0.1rem;
+    border-radius: 5px;
+}
+.pyre-profile-name {
+    font-size: 18pt;
+}
+.pyre-profile-handle {
+    color: var(--secondary-text-color);
+    font-size: 13pt;
+}
+.pyre-profile-data {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+}
+
+.pyre-profile-user-pfp {
+    border-radius: 100%;
+    width: 8rem;
+    height: 8rem;
+    margin: 1rem;
+}
+
+.pyre-profile-bio {
+    padding: 2rem;
+}

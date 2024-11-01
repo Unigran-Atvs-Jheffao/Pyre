@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../pages/register/css/register.css">
+    <title>Cadastro</title>
+    <script src="register/js/register.js"></script>
+</head>
+<body>
+    <div class="pyre-register-form-wrapper">
+        <div class="pyre-register-form">
+            <div id="error-handler">
+
+            </div>
+            <div class="pyre-register-form-input">
+                <label for="username">Username</label>
+                <input class="pyre-register-input" type="text" id="username">
+            </div>
+            <div class="pyre-register-form-input">
+                <label for="handle">Handle</label>
+                <input class="pyre-register-input" type="text" id="handle">
+            </div>
+            <div class="pyre-register-form-input">
+                <label for="email">E-mail</label>
+                <input class="pyre-register-input" type="email" id="email">
+            </div>
+            <div class="pyre-register-form-input">
+                <label for="password">Password</label>
+                <input class="pyre-register-input" type="password" id="password">
+            </div>
+            <input class="pyre-register-button" type="button" value="Registrar" onclick="tryRegister()">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+.pyre-post {
+    background-color: var(--primary-bg-color);
+    margin-bottom: 0.1rem;
+    border-radius: 5px;
+}
+
+.pyre-post-content {
+    margin: 1rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pyre-post-user-at {
+    display: flex;
+    flex-direction: column;
+}
+
+.pyre-post-buttons {
+    background: none;
+    border: none;
+    padding: 1rem;
+    transition: 100ms;
+}
+
+.pyre-post-buttons:hover {
+    background: var(--accent-bg-color);
+    border-radius: 5px;
+}
+
+.pyre-post-buttons:hover > span{
+    color: var(--root-color);
+}
+
+.pyre-post-at {
+    color: var(--secondary-text-color);
+    padding-top: 0.25rem;
+}
+
+.pyre-post-content-text {
+    padding-bottom: 0.5rem;
+}
+
+.pyre-post-tags{
+    color: var(--secondary-text-color);
+}
+
+.pyre-post-user-pfp {
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.pyre-post-header {
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pyre-post-footer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

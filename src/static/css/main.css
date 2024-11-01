@@ -1,0 +1,93 @@
+*{
+    --root-color: #ff3c00;
+    --accent-color: #d43200;
+    --bg-error: #ff1d1d;
+    --primary-text-color:#ffffff;
+    --secondary-text-color:#a3a3a3;
+    --primary-bg-color: #3c3c3c;
+    --accent-bg-color: #4c4c4c;
+    --secondary-bg-color: #2c2c2c;
+
+    font-family: Arial;
+    color: var(--primary-text-color);
+}
+
+body {
+    margin: 0;
+    background-color: var(--secondary-bg-color);
+}
+
+.pyre-content {
+    display:grid;
+    grid-template-columns: 25% 49% 25%;
+    column-gap: 0.1rem;
+}
+
+
+
+.pyre-sidebar-content{
+    background-color: var(--primary-bg-color);
+    position: fixed;
+    width: 25%;
+    height: 100%;
+}
+.pyre-sidebar-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.pyre-sidebar-link {
+    margin: 1rem;
+    text-decoration: none;
+    font-size: 16pt;
+    transition: 100ms;
+}
+
+.pyre-sidebar-link:hover{
+    color: var(--root-color);
+}
+
+.pyre-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.pyre-composing {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-bg-color);
+    margin-bottom: 0.1rem;
+    border-radius: 5px;
+}
+.pyre-composing-text {
+    display: flex;
+    padding: 1rem;
+    margin: .5rem;
+    background-color: var(--secondary-bg-color);
+    border-radius: 0.5rem;
+    height: fit-content;
+}
+
+.pyre-composing-text > div {
+    background-color: var(--secondary-bg-color);
+    resize: none;
+    outline: none;
+    height: max-content;
+    width: 90%;
+    border: none;
+}
+
+
+.pyre-composing-footer {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.pyre-composing-btn-send {
+    background: var(--root-color);
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.5rem;
+}

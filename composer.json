@@ -1,0 +1,28 @@
+{
+  "name": "hakimen/pyre",
+  "require-dev": {
+    "phpunit/phpunit": "^11.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pyre\\": "src/",
+      "Pyre\\api\\": "src/api/",
+      "Pyre\\daos\\": "src/api/daos/",
+      "Pyre\\utils\\": "src/api/utils/",
+      "Pyre\\api\\models\\": "src/api/models/",
+      "Pyre\\api\\endpoints\\": "src/api/endpoints/",
+      "Pyre\\api\\controllers\\": "src/api/controllers/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "scripts": {
+
+  },
+  "require": {
+    "ext-pdo": "*"
+  }
+}
