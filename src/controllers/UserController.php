@@ -1,6 +1,6 @@
 <?php
-namespace Pyre\api\controllers;
-use Pyre\api\models\User;
+namespace Pyre\controllers;
+use Pyre\models\User;
 use Pyre\daos\UserDAO;
 
 class UserController {
@@ -56,9 +56,30 @@ class UserController {
         return $user;
     }
 
+    public function login(string $handle, string $password) {
+        return $this->dao->login($handle, $password);
+    }
+
     public function add($user): void
     {
         $this->dao->add($user);
+    }
+
+    public function remove($id) {
+        $this->dao->remove($id);
+    }
+    public function update($json){
+        $usr = new User(
+            $json["username"],
+            $json["at"],
+            $json["email"],
+            $json["password"],
+            $json["bio"],
+            $json["creationDate"],
+            $json["avatar"]
+        );
+
+        $this->dao->update($json["id"],$usr);
     }
     /**
      * @return mixed

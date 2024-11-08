@@ -46,13 +46,13 @@ class UserDAO implements DAO {
         Database::getInstance()->commit();
     }
 
-    function remove($element)
+    function remove($id)
     {
         Database::getInstance()->beginTransaction();
         $statement = Database::getInstance()->prepare(
             'DELETE FROM tbl_pyre_users WHERE id = ?'
         );
-        $statement->bindParam(1, $element->getId());
+        $statement->bindParam(1, $id);
         $statement->execute();
         Database::getInstance()->commit();
     }
@@ -102,6 +102,17 @@ class UserDAO implements DAO {
     {
         $statement = Database::getInstance()->prepare('SELECT * FROM tbl_pyre_users WHERE email = ?');
         $statement->bindValue(1,$mail);
+        if($statement->execute()){
+            return $statement->fetch();
+        }
+        return null;
+    }
+
+    function login($handle,$password)
+    {
+        $statement = Database::getInstance()->prepare('SELECT * FROM tbl_pyre_users WHERE handle = ? and password = ?');
+        $statement->bindValue(1,$handle);
+        $statement->bindValue(2,$password);
         if($statement->execute()){
             return $statement->fetch();
         }

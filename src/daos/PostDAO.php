@@ -31,11 +31,11 @@ class PostDAO implements DAO{
         Database::getInstance()->commit();
     }
 
-    function remove($element)
+    function remove($id)
     {
         Database::getInstance()->beginTransaction();
         $statement = Database::getInstance()->prepare("DELETE FROM tbl_pyre_posts where id = ?");
-        $statement->bindParam(1, $element->getId());
+        $statement->bindParam(1, $id->getId());
         $statement->execute();
         Database::getInstance()->commit();
     }

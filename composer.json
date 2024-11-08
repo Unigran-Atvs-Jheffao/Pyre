@@ -7,11 +7,10 @@
     "psr-4": {
       "Pyre\\": "src/",
       "Pyre\\api\\": "src/api/",
-      "Pyre\\daos\\": "src/api/daos/",
-      "Pyre\\utils\\": "src/api/utils/",
-      "Pyre\\api\\models\\": "src/api/models/",
-      "Pyre\\api\\endpoints\\": "src/api/endpoints/",
-      "Pyre\\api\\controllers\\": "src/api/controllers/"
+      "Pyre\\daos\\": "src/daos/",
+      "Pyre\\utils\\": "src/utils/",
+      "Pyre\\models\\": "src/models/",
+      "Pyre\\controllers\\": "src/controllers/"
     }
   },
   "autoload-dev": {

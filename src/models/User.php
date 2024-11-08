@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyre\api\models;
+namespace Pyre\models;
 use JsonSerializable;
 
 class User implements JsonSerializable{

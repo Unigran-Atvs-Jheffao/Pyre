@@ -1,6 +1,6 @@
 <?php
 
-namespace Pyre\api\models;
+namespace Pyre\models;
 use JsonSerializable;
 
 class Post implements JsonSerializable{
@@ -11,7 +11,6 @@ class Post implements JsonSerializable{
     private $author;
     private $likes;
     /**
-     * @param int $id
      * @param string $content
      * @param \DateTime $date
      * @param User $author
@@ -19,9 +18,8 @@ class Post implements JsonSerializable{
      * @param int $likes
      * @param array $replies;
      */
-    public function __construct($id, $content, $date, $author, $tags, $likes, $replies)
+    public function __construct($content, $date, $author, $tags, $likes, $replies)
     {
-        $this->id = $id;
         $this->content = $content;
         $this->date = $date;
         $this->author = $author;
