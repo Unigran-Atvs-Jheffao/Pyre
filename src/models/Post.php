@@ -5,27 +5,19 @@ use JsonSerializable;
 
 class Post implements JsonSerializable{
     private $id;
-    private $replyTo;
     private $content;
-    private $date;
     private $author;
     private $likes;
     /**
-     * @param string $content
-     * @param \DateTime $date
-     * @param User $author
-     * @param array $tags
+     * @param $content
+     * @param int $author
      * @param int $likes
-     * @param array $replies;
      */
-    public function __construct($content, $date, $author, $tags, $likes, $replies)
+    public function __construct($content, $author, $likes)
     {
         $this->content = $content;
-        $this->date = $date;
         $this->author = $author;
-        $this->tags = $tags;
         $this->likes = $likes;
-        $this->replies = $replies;
     }
 
     public function getId(): int
@@ -48,34 +40,14 @@ class Post implements JsonSerializable{
         $this->content = $content;
     }
 
-    public function getDate(): \DateTime
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTime $date): void
-    {
-        $this->date = $date;
-    }
-
-    public function getAuthor(): User
+    public function getAuthor(): int
     {
         return $this->author;
     }
 
-    public function setAuthor(User $author): void
+    public function setAuthor(int $author): void
     {
         $this->author = $author;
-    }
-
-    public function getTags(): array
-    {
-        return $this->tags;
-    }
-
-    public function setTags(array $tags): void
-    {
-        $this->tags = $tags;
     }
 
     public function getLikes(): int
@@ -88,27 +60,14 @@ class Post implements JsonSerializable{
         $this->likes = $likes;
     }
 
-    public function getReplies(): array
-    {
-        return $this->replies;
-    }
-
-    public function setReplies(array $replies): void
-    {
-        $this->replies = $replies;
-    }
-
 
     public function jsonSerialize(): mixed
     {
         return [
             'id' => $this->id,
             'content' => $this->content,
-            'date' => $this->date,
             'author' => $this->author,
-            'tags' => $this->tags,
             'likes' => $this->likes,
-            'replies' => $this->replies
         ];
     }
 }

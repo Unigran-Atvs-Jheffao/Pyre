@@ -1,14 +1,11 @@
 function getProfile() {
     let path = window.location.pathname.split("/");
-    return path[path.length-1];
+    return path[path.length-1] == "@me" ? localStorage.getItem("user") : path[path.length-1];
 }
 
 async function fetchProfile(){
-    let profile = await fetch("http://localhost:8080/src/api/endpoints/profile.php",{
-        method: "POST",
-        body: JSON.stringify({
-            handle: getProfile()
-        })
+    let profile = await fetch(`http://localhost:8080/src/api/users/profile?handle=${getProfile()}`,{
+        method: "GET",
     }).then(response => response);
     return profile.json();
 }
@@ -27,8 +24,4 @@ async function buildProfilePage(){
             <div class="pyre-profile-bio">
                 ${data["bio"]}
             </div>`;
-}
-
-async function getPostsForUser(){
-
 }

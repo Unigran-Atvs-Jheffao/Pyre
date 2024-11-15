@@ -6,7 +6,6 @@ use Pyre\daos\UserDAO;
 class UserController {
     private static $instance;
     private $dao;
-
     private function __construct() {
         $this->dao = new UserDAO();
     }

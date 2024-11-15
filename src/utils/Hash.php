@@ -1,10 +1,10 @@
 <?php
-namespace Pyre\api\utils;
+namespace Pyre\utils;
 
 class Hash {
     static private $SALT = "pyrite";
 
-    public static function hashPassword($password){
+    public static function ashPassword($password){
         return password_hash(self::$SALT . $password, PASSWORD_DEFAULT);
     }
 }

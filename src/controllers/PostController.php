@@ -33,9 +33,6 @@ class PostController{
             $json["content"],
             $json["date"],
             $json["author"],
-            $json["tags"],
-            $json["likes"],
-            $json["replies"],
         );
 
         $this->dao->update($json["id"],$post);

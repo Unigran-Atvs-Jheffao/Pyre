@@ -2,7 +2,7 @@ async function tryLogin(){
     let handle = document.getElementById("handle").value;
     let password = document.getElementById("password").value;
 
-    let data = await fetch("http://localhost:8080/src/api/endpoints/login.php", {
+    let data = await fetch("http://localhost:8080/src/api/users/login", {
         method: "POST",
         body: JSON.stringify({
             handle: handle,
@@ -18,6 +18,8 @@ async function tryLogin(){
             <div>
         `;
     }else{
-        window.location.assign("login")
+        localStorage.setItem("user",handle);
+        window.location.assign("home")
+
     }
 }

@@ -4,7 +4,7 @@ async function tryRegister(){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    let data = await fetch("http://localhost:8080/src/api/endpoints/register.php", {
+    let data = await fetch("http://localhost:8080/src/api/users/register", {
         method: "POST",
         body: JSON.stringify({
             handle: handle,
@@ -20,7 +20,7 @@ async function tryRegister(){
                 <h3>Error!</h3>
                 <p>${data['msg']}</p>
             <div>
-        `;
+    `;
     }else{
         window.location.assign("login")
     }

@@ -56,17 +56,3 @@
     border-radius: 5px;
     padding: 1rem;
 }
-
-.pyre-link {
-    margin: 1rem;
-    color: var(--accent-color);
-    text-decoration: none;
-    text-align: center;
-}
-
-.pyre-link:hover {
-    margin: 1rem;
-    color: var(--root-color);
-    text-decoration: none;
-    transition: 100ms;
-}

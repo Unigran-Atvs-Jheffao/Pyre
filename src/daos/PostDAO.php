@@ -7,10 +7,8 @@ class PostDAO implements DAO{
     public function __construct()
     {
         Database::getInstance()->exec('
-            CREATE TABLE IF NOT EXISTS tbh_pyre_posts(
+            CREATE TABLE IF NOT EXISTS tbl_pyre_posts(
                 id integer primary key autoincrement,
-                reply_to integer,
-                creation_date timestamp not null,
                 author integer not null,
                 content varchar(512),
                 likes integer
@@ -19,16 +17,18 @@ class PostDAO implements DAO{
     }
     function add($element)
     {
-        Database::getInstance()->beginTransaction();
-        $statement = Database::getInstance()->prepare("INSERT INTO tbl_pyre_posts(reply_to,creation_date,author,content,likes) values (?,?,?,?,?)");
-        $statement->bindValue(1,$element->getReplyTo());
-        $statement->bindValue(2,$element->getCreationDate());
-        $statement->bindValue(3,$element->getAuthor());
-        $statement->bindValue(4,$element->getContent());
-        $statement->bindValue(5,$element->getLikes());
+        try{
+            $statement = Database::getInstance()->prepare("INSERT INTO tbl_pyre_posts(author,content,likes) values (?,?,?)");
+            $statement->bindValue(1,$element->getAuthor());
+            $statement->bindValue(2,$element->getContent());
+            $statement->bindValue(3,$element->getLikes());
 
-        $statement->execute();
-        Database::getInstance()->commit();
+            $statement->execute();
+
+        }catch (\Throwable $t){
+            http_response_code(500);
+            print_r($t);
+        }
     }
 
     function remove($id)
@@ -65,6 +65,14 @@ class PostDAO implements DAO{
     function getAll()
     {
         $statement = Database::getInstance()->prepare("SELECT * FROM tbl_pyre_posts");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+
+    function getAllOffset($offset = 0)
+    {
+        $statement = Database::getInstance()->prepare("SELECT * FROM tbl_pyre_posts LIMIT 10 OFFSET $offset");
         $statement->execute();
         return $statement->fetchAll();
     }

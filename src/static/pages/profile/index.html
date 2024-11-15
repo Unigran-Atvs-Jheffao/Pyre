@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../profile/css/profile.css">
     <script src="../profile/js/profile.js"></script>
     <title>Perfil</title>
+    <script src="../js/main.js"></script>
+    <script>checkLoggedIn()</script>
 </head>
 <body onload="buildProfilePage()">
 
@@ -20,9 +22,9 @@
                 <h1>🔥 Pyre</h1>
             </div>
             <div class="pyre-sidebar-links">
-                <a class='pyre-sidebar-link' href="#">🏠 Página Inicial</a>
-                <a class='pyre-sidebar-link' href="#">🔥 Perfil</a>
-                <a class='pyre-sidebar-link' href="#">⚙️ Configurações</a>
+                <a class='pyre-sidebar-link' href="/src/static/pages/home">🏠 Página Inicial</a>
+                <a class='pyre-sidebar-link' href="/src/static/pages/profile/@me">🔥 Perfil</a>
+                <a class='pyre-sidebar-link' href="#" onclick="logout()">Log out</a>
             </div>
         </div>
     </div>

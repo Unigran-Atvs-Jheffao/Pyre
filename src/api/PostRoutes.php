@@ -3,8 +3,8 @@
 namespace Pyre\api;
 
 
-use Pyre\api\controllers\UserController;
-use Pyre\api\models\User;
+use Pyre\controllers\UserController;
+use Pyre\models\User;
 use Pyre\controllers\PostController;
 use Pyre\models\Post;
 
@@ -12,7 +12,16 @@ class PostRoutes {
     public static function register($router): void {
         $router->add("GET", "/posts", function () {
             if(isset($_GET["id"])){
-                echo json_encode(PostController::getInstance()->getById(filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT)));
+                $item = PostController::getInstance()->getById(filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT));
+                if($item == null){
+                    http_response_code(404);
+                    echo json_encode([
+                        "error"=>"POST_NOT_FOUND",
+                        "msg" => "Post with id '{$_GET["id"]}' not found"
+                    ]);
+                    return;
+                }
+                echo json_encode($item);
             }else{
                 echo json_encode(PostController::getInstance()->getAll());
             }
@@ -32,12 +41,11 @@ class PostRoutes {
 
             PostController::getInstance()->add(new Post(
                 $json["content"],
-                $json["date"],
                 $json["author"],
-                $json["tags"],
-                $json["likes"],
-                $json["replies"]
+                $json["likes"]
             ));
+
+            http_response_code(200);
         });
     }
 }

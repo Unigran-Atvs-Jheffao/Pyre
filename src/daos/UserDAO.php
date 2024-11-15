@@ -3,7 +3,7 @@
 namespace Pyre\daos;
 
 use PDO;
-use Pyre\api\utils\Hash;
+use Pyre\utils\Hash;
 use Pyre\utils\Database;
 
 class UserDAO implements DAO {
@@ -32,12 +32,10 @@ class UserDAO implements DAO {
             'INSERT into tbl_pyre_users(username, handle, email, password, bio, creation_date, avatar) values (?,?,?,?,?,?,?)'
         );
 
-        $hashedPass = Hash::hashPassword($element->getPassword());
-
         $statement->bindParam(1, $element->getUsername());
         $statement->bindParam(2, $element->getHandle());
         $statement->bindParam(3, $element->getEmail());
-        $statement->bindParam(4, $hashedPass);
+        $statement->bindParam(4, $element->getPassword());
         $statement->bindParam(5, $element->getBio());
         $statement->bindParam(6, $element->getCreationDate());
         $statement->bindParam(7, $element->getAvatar(), PDO::PARAM_LOB);

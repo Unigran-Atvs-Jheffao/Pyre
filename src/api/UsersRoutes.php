@@ -1,19 +1,15 @@
 <?php
 
 namespace Pyre\api;
-
-
 use Pyre\controllers\UserController;
 use Pyre\models\User;
-use Pyre\api\utils\Hash;
 
 class UsersRoutes {
     public static function register($router): void {
         $router->add("POST", "/users/register", function () {
             $json = json_decode(file_get_contents('php://input'), $flags=JSON_OBJECT_AS_ARRAY);
 
-
-            if(trim($json['handle']) == "" || trim($json['username']) == "" || trim($json['email']) == "" || trim($json['password']) == ""){
+            if(!isset($json['handle']) || !isset($json['username']) || !isset($json['email']) || !isset($json['password'])){
                 http_response_code(400);
                 echo json_encode([
                     "error"=>"INVALID_DATA",
@@ -87,8 +83,6 @@ class UsersRoutes {
             $data = UserController::getInstance()->login($json["handle"], $json["password"]);
 
             if($data != null){
-                session_start();
-                $_SESSION["token"] = Hash::hashPassword($data["handle"]);
                 http_response_code(200);
                 echo json_encode([
                     "msg" => "User logged in",
@@ -110,6 +104,13 @@ class UsersRoutes {
             $json = json_decode(file_get_contents('php://input'), $flags=JSON_OBJECT_AS_ARRAY);
 
             UserController::getInstance()->update($json);
+        });
+
+        $router->add("GET", "/users", function () {
+            if(isset($_GET["id"])){
+                $usr = UserController::getInstance()->getById($_GET["id"]);
+                echo json_encode($usr);
+            }
         });
     }
 }

@@ -12,6 +12,21 @@
     color: var(--primary-text-color);
 }
 
+
+.pyre-link {
+    margin: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+.pyre-link:hover {
+    margin: 1rem;
+    color: var(--root-color);
+    text-decoration: none;
+    transition: 100ms;
+}
+
 body {
     margin: 0;
     background-color: var(--secondary-bg-color);
@@ -19,11 +34,9 @@ body {
 
 .pyre-content {
     display:grid;
-    grid-template-columns: 25% 49% 25%;
+    grid-template-columns: 25% 54% 25%;
     column-gap: 0.1rem;
 }
-
-
 
 .pyre-sidebar-content{
     background-color: var(--primary-bg-color);

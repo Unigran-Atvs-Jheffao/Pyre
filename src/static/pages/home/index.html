@@ -10,6 +10,8 @@
     <title>Pyre</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./home/js/pyre-homepage.js"></script>
+    <script src="../js/main.js"></script>
+    <script>checkLoggedIn()</script>
 </head>
 <body onload="buildPosts()">
 <div class="pyre-content">
@@ -19,9 +21,9 @@
                 <h1>🔥 Pyre</h1>
             </div>
             <div class="pyre-sidebar-links">
-                <a class='pyre-sidebar-link' href="#">🏠 Página Inicial</a>
-                <a class='pyre-sidebar-link' href="#">🔥 Perfil</a>
-                <a class='pyre-sidebar-link' href="#">⚙️ Configurações</a>
+                <a class='pyre-sidebar-link' href="/src/static/pages/home">🏠 Página Inicial</a>
+                <a class='pyre-sidebar-link' href="/src/static/pages/profile/@me">🔥 Perfil</a>
+                <a class='pyre-sidebar-link' href="#" onclick="logout()">Log out</a>
             </div>
         </div>
     </div>
@@ -29,15 +31,15 @@
         <div class="pyre-composing">
             <div class="pyre-composing-text">
                 <img class="pyre-post-user-pfp" src="" alt="">
-                <div contenteditable="true">
+                <div id="pyre-make-post" contenteditable="true">
                 </div>
             </div>
 
             <div class="pyre-composing-footer">
-                <div>
-a
+                <div id="">
+
                 </div>
-                <button class="pyre-composing-btn-send">
+                <button onclick="makePost()" class="pyre-composing-btn-send">
                     Post
                 </button>
             </div>
@@ -45,9 +47,6 @@ a
         <div id="pyre-feed">
 
         </div>
-    </div>
-    <div>
-        <h1>Sparks</h1>
     </div>
 </div>
 </body>
